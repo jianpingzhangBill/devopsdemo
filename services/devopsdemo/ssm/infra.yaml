@@ -1,0 +1,22 @@
+ssm: /configs/services/devopsdemo
+
+global:
+  group: devops
+  name_space: devops
+  git_repo: https://github.com/HireTeamMate/devops-cmdbTest
+  type: service
+  slack_id: U02U1TRMV3Q
+  ingress_class: nginx-internal
+  cpu_requests: 350m
+  cpu_limits: 500m
+  memory_requests: 512Mi
+  memory_limits: 512Mi
+  service_port: 8000
+  health_check: /health_check
+  enable_dns_config: "true"
+
+test2:
+  min_replicas: "1"
+  max_replicas: "1"
+  ingress_host: devopsdemo.test2.hireez.info
+

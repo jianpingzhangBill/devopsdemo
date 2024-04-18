@@ -1,0 +1,4 @@
+grpcio
+flask
+python-json-logger
+pymysql
