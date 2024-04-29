@@ -16,7 +16,7 @@ db_config = {
 
 
 
-# logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 # handler = logging.StreamHandler(stream=sys.stdout)
 # formatter = jsonlogger.JsonFormatter(
 #         fmt="%(asctime)s [%(name)s] %(funcName)s %(otelTraceID)s %(otelSpanID)s - %(lineno)d - %(levelname)s: %(message)s",
