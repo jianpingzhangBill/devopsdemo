@@ -16,24 +16,24 @@ db_config = {
 
 
 
-logger = logging.getLogger(__name__)
-handler = logging.StreamHandler(stream=sys.stdout)
-formatter = jsonlogger.JsonFormatter(
-        fmt="%(asctime)s [%(name)s] %(funcName)s %(otelTraceID)s %(otelSpanID)s - %(lineno)d - %(levelname)s: %(message)s",
-        datefmt="%Y-%m-%dT%H:%M:%SZ",
-        json_ensure_ascii=False,
-        rename_fields={
-            "asctime": "log_time",
-            "levelname": "level",
-            "message": "content",
-            "funcName": "func",
-            "otelTraceID": "TraceId",
-            "otelSpanID": "SpanId",
-        },
-    )
-handler.setFormatter(formatter)
+# logger = logging.getLogger(__name__)
+# handler = logging.StreamHandler(stream=sys.stdout)
+# formatter = jsonlogger.JsonFormatter(
+#         fmt="%(asctime)s [%(name)s] %(funcName)s %(otelTraceID)s %(otelSpanID)s - %(lineno)d - %(levelname)s: %(message)s",
+#         datefmt="%Y-%m-%dT%H:%M:%SZ",
+#         json_ensure_ascii=False,
+#         rename_fields={
+#             "asctime": "log_time",
+#             "levelname": "level",
+#             "message": "content",
+#             "funcName": "func",
+#             "otelTraceID": "TraceId",
+#             "otelSpanID": "SpanId",
+#         },
+#     )
+# handler.setFormatter(formatter)
 
-logging.basicConfig(level=logging.INFO, handlers=[handler])
+# logging.basicConfig(level=logging.INFO, handlers=[handler])
 
 
 @app.route("/health_check")
