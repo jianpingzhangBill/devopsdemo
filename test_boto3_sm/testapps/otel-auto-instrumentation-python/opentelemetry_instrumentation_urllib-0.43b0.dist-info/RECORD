@@ -1,0 +1,12 @@
+opentelemetry/instrumentation/urllib/__init__.py,sha256=0ugyxEHiAyrrEX16CeDq5I5ZlfWQSxMNCK7ydv3eedA,11538
+opentelemetry/instrumentation/urllib/__pycache__/__init__.cpython-311.pyc,,
+opentelemetry/instrumentation/urllib/__pycache__/package.cpython-311.pyc,,
+opentelemetry/instrumentation/urllib/__pycache__/version.cpython-311.pyc,,
+opentelemetry/instrumentation/urllib/package.py,sha256=f_lkxGE-Lcf6icQMNTjl2kSHAFjWvcHOD8t57lk9620,635
+opentelemetry/instrumentation/urllib/version.py,sha256=oQLhcG-J6OOUWjolmBDP6uLnC3K0uLgI1MVD1xrcOP8,632
+opentelemetry_instrumentation_urllib-0.43b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+opentelemetry_instrumentation_urllib-0.43b0.dist-info/METADATA,sha256=-lVeWerv4yzxVgwWXbLNuzpp04W9a3uKYeqYSMrOzDg,3390
+opentelemetry_instrumentation_urllib-0.43b0.dist-info/RECORD,,
+opentelemetry_instrumentation_urllib-0.43b0.dist-info/WHEEL,sha256=KGYbc1zXlYddvwxnNty23BeaKzh7YuoSIvIMO4jEhvw,87
+opentelemetry_instrumentation_urllib-0.43b0.dist-info/entry_points.txt,sha256=om8SGTLB7R9NgikM4uFMT3BPB19MBTFOfmt0GFddWcA,94
+opentelemetry_instrumentation_urllib-0.43b0.dist-info/licenses/LICENSE,sha256=h8jwqxShIeVkc8vOo9ynxGYW16f4fVPxLhZKZs0H5U8,11350

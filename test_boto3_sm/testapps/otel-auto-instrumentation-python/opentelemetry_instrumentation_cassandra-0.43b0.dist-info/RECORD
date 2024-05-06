@@ -1,0 +1,12 @@
+opentelemetry/instrumentation/cassandra/__init__.py,sha256=EoxbIw0nxoXnzfamL5CYLgW9P-H9orZ57zD3Gc-SuRQ,3287
+opentelemetry/instrumentation/cassandra/__pycache__/__init__.cpython-311.pyc,,
+opentelemetry/instrumentation/cassandra/__pycache__/package.cpython-311.pyc,,
+opentelemetry/instrumentation/cassandra/__pycache__/version.cpython-311.pyc,,
+opentelemetry/instrumentation/cassandra/package.py,sha256=3rxTVohjKl6C_2JhV8t5P3IBMJ8gjuJDMZAXlakqKrg,655
+opentelemetry/instrumentation/cassandra/version.py,sha256=jfcIUyuDoM4wISRi0ztCwV0F1WM36SO4vTtcSU3ZXLg,608
+opentelemetry_instrumentation_cassandra-0.43b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+opentelemetry_instrumentation_cassandra-0.43b0.dist-info/METADATA,sha256=WlzxWDutM-Gx6iD6ayI1RuBmbeySF09e2Mpxjdas6Xc,2249
+opentelemetry_instrumentation_cassandra-0.43b0.dist-info/RECORD,,
+opentelemetry_instrumentation_cassandra-0.43b0.dist-info/WHEEL,sha256=KGYbc1zXlYddvwxnNty23BeaKzh7YuoSIvIMO4jEhvw,87
+opentelemetry_instrumentation_cassandra-0.43b0.dist-info/entry_points.txt,sha256=fhLTMnJFXJJIzJ1krCzZ0tH2z_o6vtA-faBNgQF1eh8,103
+opentelemetry_instrumentation_cassandra-0.43b0.dist-info/licenses/LICENSE,sha256=h8jwqxShIeVkc8vOo9ynxGYW16f4fVPxLhZKZs0H5U8,11350
