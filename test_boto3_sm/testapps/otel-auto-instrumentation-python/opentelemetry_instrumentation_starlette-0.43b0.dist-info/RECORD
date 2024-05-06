@@ -1,0 +1,12 @@
+opentelemetry/instrumentation/starlette/__init__.py,sha256=vtTthReOksFPYGqhJls3qt7CS6EWeLu7Wx4z1_EHEPY,13358
+opentelemetry/instrumentation/starlette/__pycache__/__init__.cpython-311.pyc,,
+opentelemetry/instrumentation/starlette/__pycache__/package.cpython-311.pyc,,
+opentelemetry/instrumentation/starlette/__pycache__/version.cpython-311.pyc,,
+opentelemetry/instrumentation/starlette/package.py,sha256=2UFKDL4sqqjx23hcfyqMwy7QmcFa5iK0ED0-5zh7MHw,652
+opentelemetry/instrumentation/starlette/version.py,sha256=jfcIUyuDoM4wISRi0ztCwV0F1WM36SO4vTtcSU3ZXLg,608
+opentelemetry_instrumentation_starlette-0.43b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+opentelemetry_instrumentation_starlette-0.43b0.dist-info/METADATA,sha256=77Ysy07sJBlFJSAXRz8377Yq-RUW6_5LOfrxlAXb2cU,2370
+opentelemetry_instrumentation_starlette-0.43b0.dist-info/RECORD,,
+opentelemetry_instrumentation_starlette-0.43b0.dist-info/WHEEL,sha256=KGYbc1zXlYddvwxnNty23BeaKzh7YuoSIvIMO4jEhvw,87
+opentelemetry_instrumentation_starlette-0.43b0.dist-info/entry_points.txt,sha256=DYqdyYxsCNoDgdbJxww6iORrghT_ivu9UpF9_B0D-CA,103
+opentelemetry_instrumentation_starlette-0.43b0.dist-info/licenses/LICENSE,sha256=h8jwqxShIeVkc8vOo9ynxGYW16f4fVPxLhZKZs0H5U8,11350

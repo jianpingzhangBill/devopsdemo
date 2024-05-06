@@ -1,0 +1,6 @@
+cython
+grpcio
+flask
+gunicorn[gevent]
+boto3
+python-json-logger

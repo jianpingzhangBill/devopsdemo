@@ -1,0 +1,11 @@
+opentelemetry/propagators/b3/__init__.py,sha256=Gz5K1TPiuggEZlCyskgcFSF0dBYmHIB5h6ws69MJMb0,6700
+opentelemetry/propagators/b3/__pycache__/__init__.cpython-311.pyc,,
+opentelemetry/propagators/b3/__pycache__/version.cpython-311.pyc,,
+opentelemetry/propagators/b3/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+opentelemetry/propagators/b3/version.py,sha256=eXK7msJ0kqMPfMlQDicKJJFBVbfhCZCbugtmeesZBJA,608
+opentelemetry_propagator_b3-1.22.0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+opentelemetry_propagator_b3-1.22.0.dist-info/METADATA,sha256=vKH6pqg1tQqgc8lWn0rcMOt7M5WI7tKF6J7FX2VydbQ,1531
+opentelemetry_propagator_b3-1.22.0.dist-info/RECORD,,
+opentelemetry_propagator_b3-1.22.0.dist-info/WHEEL,sha256=KGYbc1zXlYddvwxnNty23BeaKzh7YuoSIvIMO4jEhvw,87
+opentelemetry_propagator_b3-1.22.0.dist-info/entry_points.txt,sha256=L55tL-D0kPx4LODFdGZdcyr3efqem1BZ3OEz_b5nhpA,129
+opentelemetry_propagator_b3-1.22.0.dist-info/licenses/LICENSE,sha256=h8jwqxShIeVkc8vOo9ynxGYW16f4fVPxLhZKZs0H5U8,11350

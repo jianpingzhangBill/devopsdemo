@@ -1,0 +1,153 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: devopsdemo-billtest
+  namespace: devops
+  labels:
+    app: devopsdemo
+  
+spec:
+  volumes:
+    - name: kube-api-access-m7ndr
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+        defaultMode: 420
+    - name: opentelemetry-auto-instrumentation-python
+      emptyDir:
+        sizeLimit: 200Mi
+  initContainers:
+    - name: opentelemetry-auto-instrumentation-python
+      image: >-
+        602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/observability/adot-autoinstrumentation-python:v0.0.1
+      command:
+        - cp
+        - '-a'
+        - /autoinstrumentation/.
+        - /otel-auto-instrumentation-python
+      resources: {}
+      volumeMounts:
+        - name: opentelemetry-auto-instrumentation-python
+          mountPath: /otel-auto-instrumentation-python
+        - name: kube-api-access-m7ndr
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      imagePullPolicy: IfNotPresent
+  containers:
+    - name: devopsdemo
+      image: 'public.ecr.aws/docker/library/python:3.11'
+      command:
+        - bash
+        - '-c'
+        - |
+          pip install grpcio python-json-logger flask pymysql
+          cat > test.py <<-EOF
+          from flask import Flask
+          import pymysql
+          import logging
+          import sys
+
+          app = Flask(__name__)
+
+          db_config = {
+              'host': 'mysql-master',
+              'port': 3306,
+              'user': 'admin',
+              'password': 'xxxxxxxxx',
+              'database': 'mysql',
+          }
+
+          logger = logging.getLogger(__name__)
+
+
+          @app.route("/")
+          def hello_world():
+              logger.info('----test----')
+              return "<p>Hello, World!</p>"
+
+          @app.route('/tr')
+          def hello():
+              with pymysql.connect(**db_config) as connection:
+                  with connection.cursor() as cursor:
+                      cursor.execute('SELECT DISTINCT * FROM user WHERE host = "localhost"')
+                      rows = cursor.fetchall()
+              logger.info("query db")
+              unique_rows = list(set(rows))
+              return str(unique_rows)
+
+          if __name__ == '__main__':
+              app.run(port=8000, debug=True, host="0.0.0.0")
+          EOF
+          python test.py
+      ports:
+        - containerPort: 8000
+          protocol: TCP
+      env:
+        - name: OTEL_AWS_APP_SIGNALS_ENABLED
+          value: 'true'
+        - name: OTEL_TRACES_SAMPLER_ARG
+          value: 'endpoint=http://cloudwatch-agent.amazon-cloudwatch:2000'
+        - name: OTEL_TRACES_SAMPLER
+          value: xray
+        - name: OTEL_EXPORTER_OTLP_PROTOCOL
+          value: http/protobuf
+        - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+          value: 'http://cloudwatch-agent.amazon-cloudwatch:4316/v1/traces'
+        - name: OTEL_AWS_APP_SIGNALS_EXPORTER_ENDPOINT
+          value: 'http://cloudwatch-agent.amazon-cloudwatch:4316/v1/metrics'
+        - name: OTEL_METRICS_EXPORTER
+          value: none
+        - name: OTEL_PYTHON_DISTRO
+          value: aws_distro
+        - name: OTEL_PYTHON_CONFIGURATOR
+          value: aws_configurator
+        - name: OTEL_LOGS_EXPORTER
+          value: none
+        - name: PYTHONPATH
+          value: >-
+            /otel-auto-instrumentation-python/opentelemetry/instrumentation/auto_instrumentation:/otel-auto-instrumentation-python
+        - name: OTEL_TRACES_EXPORTER
+          value: otlp
+        - name: OTEL_EXPORTER_OTLP_TRACES_PROTOCOL
+          value: http/protobuf
+        - name: OTEL_EXPORTER_OTLP_METRICS_PROTOCOL
+          value: http/protobuf
+        - name: OTEL_SERVICE_NAME
+          value: devopsdemo
+        - name: OTEL_RESOURCE_ATTRIBUTES_POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: OTEL_RESOURCE_ATTRIBUTES_NODE_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        - name: OTEL_PROPAGATORS
+          value: 'tracecontext,baggage,b3,xray'
+        - name: OTEL_RESOURCE_ATTRIBUTES
+          value: >-
+            k8s.container.name=devopsdemo,k8s.deployment.name=devopsdemo,k8s.namespace.name=devops,k8s.node.name=$(OTEL_RESOURCE_ATTRIBUTES_NODE_NAME),k8s.pod.name=$(OTEL_RESOURCE_ATTRIBUTES_POD_NAME),k8s.replicaset.name=devopsdemo-billtest,service.version=3.11
+      resources: {}
+      volumeMounts:
+        - name: kube-api-access-m7ndr
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        - name: opentelemetry-auto-instrumentation-python
+          mountPath: /otel-auto-instrumentation-python
