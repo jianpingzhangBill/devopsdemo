@@ -27,5 +27,5 @@ def health_check():
 
 if __name__ == "__main__":
     import os
-    print(os.getenv("OTEL_SERVICE_NAME"))
+    print(os.getenv("OTEL_SERVICE_NAME")) 
     app.run(host="0.0.0.0",port=8000,debug=True)
